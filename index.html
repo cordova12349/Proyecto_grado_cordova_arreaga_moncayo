@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web Informativa sobre Fútbol</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======== FONDO ======== */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('https://www.shutterstock.com/image-illustration/wideangle-modern-football-stadium-glass-600nw-2591435177.jpg') no-repeat center center/cover;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.45);
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* ======== TÍTULO PRINCIPAL ======== */
+    header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 25px 0;
+      color: #fff;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5em;
+      text-shadow: 3px 3px 10px black;
+      animation: entradaTitulo 2s ease-out;
+    }
+
+    @keyframes entradaTitulo {
+      0% { opacity: 0; transform: translateY(-60px) scale(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ======== MENÚ ======== */
+    nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 60px;
+      padding: 10px 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      animation: deslizarMenu 2s ease;
+    }
+
+    @keyframes deslizarMenu {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px 15px;
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      font-weight: bold;
+      transition: 0.4s;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a:hover {
+      background: #00ff7f;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    .menu-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      margin-right: 8px;
+      border: 2px solid white;
+      background-color: rgba(255,255,255,0.3);
+      object-fit: cover;
+    }
+
+    /* ======== CONTENIDO ======== */
+    .contenido {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
+      animation: aparecer 3s ease;
+    }
+
+    .contenido h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2em; /* 👈 más pequeño */
+      text-shadow: 2px 2px 6px black;
+      color: #fff;
+    }
+
+    .contenido p {
+      font-size: 1.1em;
+      width: 80%;
+      margin: 20px auto;
+      text-shadow: 1px 1px 3px #000;
+      line-height: 1.7;
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* ======== BALÓN ======== */
+    .balon {
+      width: 130px;
+      height: 90px;
+      background-image: url('balon.png');
+      background-size: cover;
+      position: absolute;
+      bottom: 40px;
+      left: 100px;
+      z-index: 3;
+      cursor: pointer;
+      animation: rebote 2s infinite ease-in-out;
+    }
+
+    @keyframes rebote {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+
+    /* ======== NUEVAS SERPENTINAS ======== */
+    .serpentina {
+      position: fixed;
+      top: -30px;
+      width: 12px;
+      height: 40px;
+      border-radius: 50%;
+      opacity: 0.9;
+      z-index: 4;
+      box-shadow: 0 0 10px white;
+      transform: rotate(45deg);
+      animation: caer 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(50vh) rotate(180deg) scale(1.2); }
+      100% { transform: translateY(100vh) rotate(360deg) scale(1); opacity: 0; }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.9em;
+      opacity: 0.8;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+
+  <header>Bienvenido al Mundo del Fútbol 11</header>
+
+  <nav>
+    <!-- AQUÍ ENLAZAS TUS OTRAS PÁGINAS -->
+    <a href="historia.html"><img class="menu-img" src="https://tse3.mm.bing.net/th/id/OIP.hx5pR_Btl7yew-hdh4HgvwHaHl?rs=1&pid=ImgDetMain&o=7&rm=3""file:///C:/Users/usuario/OneDrive/Im%C3%A1genes/Escritorio/Pro-Gra-Gru1/REGLAS.html" alt="Equipos">HISTORIA</a>
+
+    <a href="JUGADOR.html"><img class="menu-img" src="https://st.depositphotos.com/1526816/2492/v/950/depositphotos_24929299-stock-illustration-a-boy-kicking-the-soccer.jpg""file:///C:/Users/usuario/OneDrive/Im%C3%A1genes/Escritorio/historia.html" alt="JUGADORES">JUGADORES</a>
+
+
+    <a href="reglaas.html"><img class="menu-img" src="https://th.bing.com/th/id/R.e6abfa00ba30c78ef9d168e22d52fc24?rik=fOUMGzSYrZ7nVw&pid=ImgRaw&r=0""file:///E:/Pro-Gra-Gru1/historia.html" alt="Partidos">REGLAS</a>
+  </nav>
+
+<div style="
+    text-align:center; 
+    margin-top:60px; 
+    position:relative; 
+    z-index:9999;
+">
+
+  <h1 style="
+      font-family:'Dancing Script', cursive;
+      font-size:42px;
+      font-weight:700;
+      color:#ffffff;
+      text-shadow:3px 3px 10px black;
+  ">
+    Página Web Informativa sobre Fútbol ⚽
+  </h1>
+
+  <p style="
+      font-family:'Poppins', sans-serif;
+      font-size:20px;
+      color:white;
+      width:80%;
+      margin:15px auto;
+      line-height:1.6;
+      text-shadow:1px 1px 5px black;
+  ">
+    Esta página está dedicada al fútbol ecuatoriano, un deporte lleno de pasión,
+    esfuerzo y orgullo nacional. Aquí encontrarás historia, equipos, jugadores
+    y momentos que han marcado el balompié del Ecuador. 🇪🇨🔥
+  </p>
+
+</div>
+
+<!-- Fuente del título -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <div class="balon" onclick="celebrar()"></div>
+
+  <footer>. <!-- ======== AUTORÍA ======== -->
+<div class="autoria">
+  <h3>Autoría del Proyecto</h3>
+
+  <div class="autores-contenedor">
+    <div class="lista-autores">
+      <p>• ARREAGA JOSTYN</p>
+      <p>• CHINGA MONCAYO</p>
+      <p>• CORDOVA NAVAS</p>
+    </div>
+
+    <img class="foto-autoria" src="FtGrpr.jpg" alt="Foto del equipo">
+  </div>
+</div>
+
+<style>
+  .autoria {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-shadow: 2px 2px 6px black;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    animation: aparecerAutor 2s ease;
+  }
+
+  .autoria h3 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+
+  .autores-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .lista-autores p {
+    margin: 8px 0;
+    font-size: 1.4em;
+  }
+
+  .foto-autoria {
+    width: 220px;
+    height: 120px;
+    border-radius: 15px;
+    border: 3px solid white;
+    object-fit: cover;
+    box-shadow: 0 0 10px black;
+  }
+
+  @keyframes aparecerAutor {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</footer>
+
+  <!-- ======== SONIDO DEL GOL ======== -->
+  <audio id="gol-sonido">
+    <source src="gol.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function celebrar() {
+      const sonido = document.getElementById('gol-sonido');
+      sonido.currentTime = 0;
+      sonido.play();
+
+      // 🎉 Serpentinas nuevas
+      for (let i = 0; i < 35; i++) {
+        const serp = document.createElement('div');
+        serp.classList.add('serpentina');
+        serp.style.left = Math.random() * 100 + 'vw';
+        serp.style.background = `linear-gradient(${Math.random()*360}deg, hsl(${Math.random()*360}, 100%, 60%), hsl(${Math.random()*360}, 100%, 70%))`;
+        serp.style.animationDuration = 3 + Math.random() * 3 + 's';
+        document.body.appendChild(serp);
+        setTimeout(() => serp.remove(), 6000);
+      }
+    }
+  </script>
+</body>
+</html>
